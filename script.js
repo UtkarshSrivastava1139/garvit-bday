@@ -1,3 +1,21 @@
+// Loading screen animation
+window.addEventListener('load', function() {
+    setTimeout(() => {
+        const loader = document.querySelector('.loader');
+        const body = document.body;
+        
+        if (loader) {
+            loader.classList.add('fade-out');
+            body.classList.remove('loading');
+            
+            // Remove loader after transition
+            setTimeout(() => {
+                loader.remove();
+            }, 800);
+        }
+    }, 2000); // Show loading for 2 seconds
+});
+
 // Confetti animation
 function createConfettiPiece() {
     const confetti = document.createElement('div');
@@ -64,6 +82,48 @@ if (soundToggle) {
             soundToggle.textContent = '🔇';
         }
     });
+}
+
+// Video modal functions
+function openVideoModal() {
+    const modal = document.getElementById('video-modal');
+    const video = document.getElementById('birthday-video');
+    
+    if (modal && video) {
+        modal.style.display = 'block';
+        video.currentTime = 0; // Start from beginning
+        
+        // Pause background music while video plays
+        const bgMusic = document.getElementById('bg-music');
+        if (bgMusic) bgMusic.pause();
+        
+        // Create confetti burst when video opens
+        for(let i = 0; i < 30; i++) {
+            setTimeout(() => createConfettiPiece(), i * 50);
+        }
+    }
+}
+
+function closeVideoModal() {
+    const modal = document.getElementById('video-modal');
+    const video = document.getElementById('birthday-video');
+    
+    if (modal && video) {
+        modal.style.display = 'none';
+        video.pause();
+        
+        // Resume background music
+        const bgMusic = document.getElementById('bg-music');
+        if (bgMusic && soundEnabled) bgMusic.play();
+    }
+}
+
+// Close modal when clicking outside the video
+window.onclick = function(event) {
+    const modal = document.getElementById('video-modal');
+    if (event.target === modal) {
+        closeVideoModal();
+    }
 }
 
 // Simple slider (auto-scroll)

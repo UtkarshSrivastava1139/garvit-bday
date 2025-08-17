@@ -9,7 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="loading">
+    <div class="loader">
+        <div class="birthday-cake">🎂</div>
+        <div class="loading-text">Preparing Something Magical...</div>
+    </div>
+    
     <audio id="bg-music" src="images/bgmusic.mp3" autoplay loop></audio>
     <audio id="horn-sound" src="https://www.soundjay.com/misc/sounds/car-horn.mp3" preload="auto"></audio>
     <audio id="celebration-sound" src="https://www.soundjay.com/misc/sounds/party-horn.mp3" preload="auto"></audio>
@@ -17,7 +22,7 @@
     
     <!-- Sound control button -->
     <button id="sound-toggle" class="sound-btn">🔊</button>
-    <header>
+    <header class="fade-in-up">
         <div class="car-bg">
                 <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" alt="Car Icon" class="car-icon">
                 <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" alt="Car Icon" class="car-icon" style="filter:hue-rotate(90deg);margin:0 10px;">
@@ -26,8 +31,9 @@
         <h1 class="headline" onclick="playCelebrationSound()">🎂 Happy Birthday Gravit Bhai! 🎉</h1>
         <h2 class="friend-group">From your Bowling Experts 🏆</h2>
         <button class="party-btn" onclick="playHornSound()">🚗 Honk for Gravit! 🎺</button>
+        <button class="video-btn" onclick="openVideoModal()">🎬 Watch Pre-Birthday Video! 🎥</button>
     </header>
-    <main>
+    <main class="fade-in-up">
         <section class="gallery-section">
             <h3>Memories Gallery</h3>
             <div class="slider">
@@ -38,6 +44,19 @@
             </div>
         </section>
     </main>
+    
+    <!-- Video Modal -->
+    <div id="video-modal" class="video-modal">
+        <div class="video-content">
+            <span class="close-video" onclick="closeVideoModal()">&times;</span>
+            <h3>🎬 Special Pre-Birthday Video for Gravit Bhai! 🎉</h3>
+            <video id="birthday-video" controls>
+                <source src="images/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

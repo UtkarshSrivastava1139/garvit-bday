@@ -5,6 +5,79 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
 }
+
+/* Loading Screen */
+body.loading {
+    overflow: hidden;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease-out;
+}
+
+.loader.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.birthday-cake {
+    font-size: 6rem;
+    animation: bounce 1.5s infinite;
+    margin-bottom: 2rem;
+}
+
+.loading-text {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-30px); }
+    60% { transform: translateY(-15px); }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Fade-in animation for content */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger the animations */
+header.fade-in-up {
+    animation-delay: 0.3s;
+}
+
+main.fade-in-up {
+    animation-delay: 0.6s;
+}
 header {
     text-align: center;
     padding: 2rem 1rem 1rem 1rem;
@@ -39,6 +112,23 @@ header {
 .party-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+}
+.video-btn {
+    background: linear-gradient(45deg, #9b59b6, #e74c3c);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px;
+    box-shadow: 0 4px 15px rgba(155, 89, 182, 0.4);
+    transition: all 0.3s ease;
+}
+.video-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(155, 89, 182, 0.6);
 }
 .sound-btn {
     position: fixed;
@@ -123,4 +213,76 @@ header {
     .gallery-section h3 { font-size: 1.2rem; }
     .slide { width: 120px; height: 80px; }
     .car-icon { width: 50px; height: 50px; }
+}
+
+/* Video Modal Styles */
+.video-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.video-content {
+    position: relative;
+    margin: 5% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    border-radius: 20px;
+    text-align: center;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-video {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff3c3c;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-video:hover {
+    color: #e74c3c;
+    transform: scale(1.2);
+}
+
+.video-content h3 {
+    color: #ff3c3c;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+#birthday-video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 700px) {
+    .video-content {
+        margin: 10% auto;
+        width: 95%;
+        padding: 15px;
+    }
+    
+    .video-content h3 {
+        font-size: 1.2rem;
+    }
 }
