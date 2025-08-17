@@ -11,9 +11,53 @@ window.addEventListener('load', function() {
             // Remove loader after transition
             setTimeout(() => {
                 loader.remove();
+                // Start bouncing pfps after loading
+                startBouncingPfps();
             }, 800);
         }
     }, 2000); // Show loading for 2 seconds
+});
+
+// Enhanced bouncing profile pictures
+function startBouncingPfps() {
+    const pfps = document.querySelectorAll('.bouncing-pfp');
+    
+    // Add random movement occasionally
+    setInterval(() => {
+        pfps.forEach((pfp, index) => {
+            const randomX = Math.random() * 100;
+            const randomY = Math.random() * 100;
+            
+            setTimeout(() => {
+                pfp.style.left = randomX + '%';
+                pfp.style.top = randomY + '%';
+                pfp.style.transition = 'all 3s ease-in-out';
+            }, index * 500);
+        });
+    }, 8000); // Move every 8 seconds
+}
+
+// Click interaction with bouncing pfps
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        const pfps = document.querySelectorAll('.bouncing-pfp');
+        pfps.forEach(pfp => {
+            pfp.style.pointerEvents = 'auto';
+            pfp.style.cursor = 'pointer';
+            pfp.addEventListener('click', function() {
+                // Create confetti burst on pfp click
+                for(let i = 0; i < 15; i++) {
+                    setTimeout(() => createConfettiPiece(), i * 30);
+                }
+                
+                // Temporary scale effect
+                this.style.transform = 'scale(1.5) rotate(360deg)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 500);
+            });
+        });
+    }, 3000);
 });
 
 // Confetti animation
