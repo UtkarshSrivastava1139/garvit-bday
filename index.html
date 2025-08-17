@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Gravit Bhai!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="bg-music" src="images/bgmusic.mp3" autoplay loop></audio>
+    <audio id="horn-sound" src="https://www.soundjay.com/misc/sounds/car-horn.mp3" preload="auto"></audio>
+    <audio id="celebration-sound" src="https://www.soundjay.com/misc/sounds/party-horn.mp3" preload="auto"></audio>
+    <div class="confetti"></div>
+    
+    <!-- Sound control button -->
+    <button id="sound-toggle" class="sound-btn">🔊</button>
+    <header>
+        <div class="car-bg">
+                <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" alt="Car Icon" class="car-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" alt="Car Icon" class="car-icon" style="filter:hue-rotate(90deg);margin:0 10px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" alt="Car Icon" class="car-icon" style="filter:hue-rotate(180deg);margin:0 10px;">
+        </div>
+        <h1 class="headline" onclick="playCelebrationSound()">🎂 Happy Birthday Gravit Bhai! 🎉</h1>
+        <h2 class="friend-group">From your Bowling Experts 🏆</h2>
+        <button class="party-btn" onclick="playHornSound()">🚗 Honk for Gravit! 🎺</button>
+    </header>
+    <main>
+        <section class="gallery-section">
+            <h3>Memories Gallery</h3>
+            <div class="slider">
+                <img src="images/1 (1).jpg" alt="Memory 1" class="slide">
+                <img src="images/1 (2).jpg" alt="Memory 2" class="slide">
+                <img src="images/1 (3).jpg" alt="Memory 3" class="slide">
+                <img src="images/1 (4).jpg" alt="Memory 4" class="slide">
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

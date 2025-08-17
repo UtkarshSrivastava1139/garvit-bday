@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+header {
+    text-align: center;
+    padding: 2rem 1rem 1rem 1rem;
+    position: relative;
+}
+.headline {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #ff3c3c;
+    text-shadow: 2px 2px 8px #fff, 0 0 20px #ffb347;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.headline:hover {
+    transform: scale(1.05);
+}
+.party-btn {
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    transition: all 0.3s ease;
+}
+.party-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+}
+.sound-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ff3c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(255, 60, 60, 0.4);
+    transition: all 0.3s ease;
+}
+.sound-btn:hover {
+    transform: scale(1.1);
+}
+.friend-group {
+    font-size: 1.5rem;
+    color: #2d2d2d;
+    font-weight: 700;
+    background: linear-gradient(90deg, #f7971e, #ffd200);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 0.5rem;
+}
+.car-bg {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.car-icon {
+    width: 80px;
+    height: 80px;
+    animation: car-move 2s infinite alternate;
+}
+@keyframes car-move {
+    0% { transform: translateX(-20px) rotate(-5deg); }
+    100% { transform: translateX(20px) rotate(5deg); }
+}
+.gallery-section {
+    margin: 2rem auto;
+    max-width: 600px;
+    background: #fff8e1;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(255, 60, 60, 0.15);
+    padding: 1.5rem;
+    text-align: center;
+}
+.gallery-section h3 {
+    font-size: 2rem;
+    color: #ff3c3c;
+    margin-bottom: 1rem;
+}
+.slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+.slide {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.15);
+    background: #eee;
+}
+.confetti {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 999;
+}
+@media (max-width: 700px) {
+    .headline { font-size: 2rem; }
+    .gallery-section h3 { font-size: 1.2rem; }
+    .slide { width: 120px; height: 80px; }
+    .car-icon { width: 50px; height: 50px; }
+}
